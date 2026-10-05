@@ -1,0 +1,89 @@
+.registration-overlay{position:fixed;inset:76px 0 0;z-index:49;display:flex;align-items:center;justify-content:center;min-height:0;padding:14px 22px 18px;background:rgba(5,17,38,.56);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.registration-dialog{position:relative;display:flex;width:min(1180px,100%);height:min(690px,calc(100dvh - 112px));min-height:0;overflow:hidden;border:1px solid rgba(255,255,255,.6);border-radius:28px;background:#fff;box-shadow:0 32px 100px rgba(4,18,43,.28)}
+.registration-aside{position:relative;isolation:isolate;display:flex;width:34%;flex:0 0 34%;flex-direction:column;justify-content:space-between;overflow:hidden;padding:42px;color:white;background:linear-gradient(150deg,#081d3c 0%,#0d3470 55%,#101b48 100%)}
+.registration-blobs{position:absolute;z-index:-1;inset:0;overflow:hidden;filter:blur(42px);opacity:.64;pointer-events:none}
+.registration-blobs span{position:absolute;width:230px;height:230px;border-radius:50%;background:#287df0;animation:registration-float 16s ease-in-out infinite alternate}
+.registration-blobs span:nth-child(1){top:4%;left:-22%;background:#3185ff}
+.registration-blobs span:nth-child(2){top:38%;right:-28%;width:280px;height:280px;background:#7654e9;animation-duration:22s}
+.registration-blobs span:nth-child(3){bottom:-20%;left:18%;width:210px;height:210px;background:#0cb6ce;animation-duration:19s}
+@keyframes registration-float{to{transform:translate(34px,-26px) rotate(35deg) scale(1.12)}}
+.registration-brand{position:relative;color:white;font-size:29px;font-weight:800;letter-spacing:-.07em;text-decoration:none}
+.registration-brand span{color:#66c9ff}
+.registration-aside-copy{position:relative;animation:registration-enter .35s ease both}
+.registration-aside-icon{display:grid;width:66px;height:66px;place-items:center;margin-bottom:24px;border:1px solid rgba(255,255,255,.18);border-radius:19px;background:rgba(255,255,255,.11);color:#c2e7ff;backdrop-filter:blur(12px)}
+.registration-aside-copy h2{max-width:300px;margin:0;color:white;font-size:clamp(27px,3vw,36px);font-weight:700;line-height:1.12;letter-spacing:-.045em}
+.registration-aside-copy p{max-width:300px;margin:13px 0 0;color:rgba(231,241,255,.72);font-size:15px;line-height:1.7}
+.registration-copyright{position:relative;color:rgba(223,235,255,.5);font-size:12px}
+.registration-main{position:relative;display:flex;min-width:0;flex:1;flex-direction:column;overflow-y:auto;padding:38px clamp(28px,6vw,76px) 22px}
+.registration-close{position:absolute;z-index:10;top:24px;right:25px;display:grid;width:40px;height:40px;place-items:center;padding:0;border:1px solid #e8edf5;border-radius:50%;color:#72819a;background:#fff;cursor:pointer;pointer-events:auto;transition:background .2s,color .2s,transform .2s}
+.registration-close:hover{transform:rotate(90deg);background:#f4f7fb;color:#172d4f}
+.registration-back{position:absolute;top:32px;left:clamp(28px,6vw,76px);display:inline-flex;align-items:center;gap:8px;border:0;background:none;color:#70809a;font-size:13px;font-weight:650;cursor:pointer}
+.registration-back:hover{color:#1769e8}
+.registration-progress{width:100%;max-width:620px;margin:0 auto;padding-top:9px;color:#8b98ac;font-size:12px;font-weight:650}
+.registration-progress-track{height:5px;margin-top:11px;overflow:hidden;border-radius:99px;background:#eaf0f7}
+.registration-progress-track span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#1769e8,#7054d8);box-shadow:0 2px 8px rgba(23,105,232,.25);transition:width .45s ease}
+.registration-stage{display:flex;min-height:0;flex:1;flex-direction:column;justify-content:center;width:100%;max-width:620px;margin:0 auto;animation:registration-enter .35s ease both}
+@keyframes registration-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.registration-heading{margin:0 auto 30px;text-align:center}
+.registration-eyebrow{display:block;margin-bottom:11px;color:#1769e8;font-size:10px;font-weight:800;letter-spacing:.17em}
+.registration-heading h1,.registration-success h1{margin:0;color:#102342;font-size:clamp(27px,3vw,38px);font-weight:780;line-height:1.15;letter-spacing:-.045em}
+.registration-heading p,.registration-success>p{max-width:490px;margin:12px auto 0;color:#738198;font-size:14px;line-height:1.65}
+.registration-course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.registration-grade-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.registration-choice{position:relative;display:flex;min-height:64px;align-items:center;justify-content:space-between;gap:10px;padding:14px 15px;border:1px solid #e5ebf3;border-radius:15px;background:#f8faff;color:#273954;text-align:left;font-size:13px;font-weight:700;line-height:1.35;cursor:pointer;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.registration-choice svg{flex:0 0 auto;color:#9aa8bb;transition:color .2s,transform .2s}
+.registration-choice:hover:not(:disabled){transform:translateY(-2px);border-color:#a9cafa;background:#fff;box-shadow:0 9px 22px rgba(21,75,143,.08)}
+.registration-choice:hover:not(:disabled) svg{transform:translateX(2px);color:#1769e8}
+.registration-choice.is-selected{border-color:#1769e8;background:#f0f6ff;color:#1557bb;box-shadow:0 0 0 3px rgba(23,105,232,.1)}
+.registration-choice.is-selected svg{color:#1769e8}
+.registration-choice:disabled{cursor:default;opacity:.66}
+.registration-contact-form{display:grid;gap:17px;width:100%;max-width:480px;margin:0 auto}
+.registration-parent-fields{display:grid;gap:10px;margin-top:18px}.registration-parent-fields h3{margin:0;color:#172b48;font-size:13px;font-weight:750}.registration-parent-fields .registration-input-row{min-height:48px}
+.registration-input-row,.registration-phone-row{position:relative;display:flex;min-height:58px;align-items:center;gap:12px;border-bottom:1.5px solid #dfe6ef;color:#95a2b5;transition:border-color .2s,color .2s}
+.registration-input-row:focus-within,.registration-phone-row:focus-within{border-color:#1769e8;color:#1769e8}
+.registration-input-row>svg,.registration-phone-row>svg{flex:0 0 auto}
+.registration-input-row input,.registration-phone-row input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#172b48;font-size:16px;letter-spacing:0}
+.registration-input-row input::placeholder,.registration-phone-row input::placeholder{color:#9aa6b7}
+.registration-phone-row{gap:10px}
+.registration-country-select{position:relative;display:flex;align-items:center;gap:2px;flex:0 0 auto;color:#53647d}
+.registration-country-select select{max-width:150px;appearance:none;border:0;outline:0;background:transparent;color:#425570;font-size:12px;cursor:pointer}
+.registration-country-select svg{pointer-events:none}
+.registration-primary-button{display:flex;min-height:54px;align-items:center;justify-content:center;gap:10px;margin-top:9px;padding:0 20px;border:0;border-radius:14px;background:linear-gradient(100deg,#1769e8,#246fe3);box-shadow:0 10px 24px rgba(23,105,232,.2);color:#fff;font-size:14px;font-weight:750;cursor:pointer;transition:transform .2s,box-shadow .2s,opacity .2s}
+.registration-primary-button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 28px rgba(23,105,232,.28)}
+.registration-primary-button:disabled{cursor:not-allowed;opacity:.5;box-shadow:none}
+.registration-school-picker{position:relative;width:100%;max-width:480px;margin:0 auto}
+.registration-school-options{position:absolute;z-index:5;top:64px;right:0;left:0;max-height:240px;overflow:auto;margin:0;padding:6px;border:1px solid #e5ebf3;border-radius:14px;background:#fff;box-shadow:0 18px 38px rgba(18,43,79,.14);list-style:none}
+.registration-school-options button{width:100%;padding:11px 12px;border:0;border-radius:9px;background:white;color:#41536e;text-align:left;font-size:13px;cursor:pointer}
+.registration-school-options button:hover{background:#f2f7ff;color:#1769e8}
+.registration-error{margin:14px 0 0;color:#c03949;text-align:center;font-size:13px}
+.registration-secure-note{display:flex;align-items:center;justify-content:center;gap:7px;margin:15px 0 0;color:#99a5b5;font-size:11px}
+.registration-secure-note span{display:grid;width:17px;height:17px;place-items:center;border-radius:50%;background:#e8f8f1;color:#21966a}
+.registration-success{max-width:480px;margin:0 auto;text-align:center}
+.registration-success-icon{display:grid;width:78px;height:78px;place-items:center;margin:0 auto 23px;border:1px solid #c9f0de;border-radius:50%;background:#e9fbf2;color:#1ca56c;box-shadow:0 10px 28px rgba(34,165,109,.12)}
+.registration-success .registration-eyebrow{margin-bottom:10px;color:#1b9a68}
+.registration-whatsapp{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:27px;padding:14px 21px;border-radius:13px;background:#1cac69;color:white;font-size:14px;font-weight:750;text-decoration:none;box-shadow:0 9px 22px rgba(28,172,105,.2);transition:transform .2s,background .2s}
+.registration-whatsapp:hover{transform:translateY(-2px);background:#15945a}
+.registration-spin{animation:registration-spin 1s linear infinite}
+@keyframes registration-spin{to{transform:rotate(360deg)}}
+
+@media(max-width:850px){.registration-overlay{inset:76px 0 0;padding:10px 12px 14px}.registration-dialog{height:calc(100dvh - 100px);border-radius:22px}.registration-aside{width:31%;flex-basis:31%;padding:30px 24px}.registration-main{padding-right:30px;padding-left:30px}.registration-back{left:30px}.registration-course-grid,.registration-grade-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:768px){.registration-overlay{inset:66px 0 0}.registration-dialog{height:calc(100dvh - 90px)}}
+@media(max-width:640px){.registration-overlay{inset:66px 0 0;padding:0;align-items:stretch;background:#fff;backdrop-filter:none}.registration-dialog{width:100%;height:calc(100dvh - 66px);min-height:0;border:0;border-radius:0;box-shadow:none}.registration-aside{display:none}.registration-main{padding:22px 22px 18px}.registration-close{top:14px;right:18px;width:38px;height:38px}.registration-back{top:24px;left:22px}.registration-progress{padding-top:8px}.registration-stage{padding-top:15px}.registration-heading{margin-bottom:20px}.registration-heading h1,.registration-success h1{font-size:29px}.registration-course-grid,.registration-grade-grid{gap:10px}.registration-choice{min-height:54px;padding:11px;border-radius:12px;font-size:12px}.registration-phone-row{flex-wrap:wrap;padding:7px 0}.registration-phone-row>svg{align-self:center}.registration-country-select select{max-width:130px}.registration-phone-row>input{flex-basis:100%;padding:4px 0 3px 31px}.registration-secure-note{margin-top:8px}}
+@media(max-width:480px){.registration-overlay{inset:58px 0 0}.registration-dialog{height:calc(100dvh - 58px)}}
+@media(max-width:360px){.registration-course-grid,.registration-grade-grid{grid-template-columns:1fr}.registration-heading h1,.registration-success h1{font-size:26px}.registration-main{padding-right:18px;padding-left:18px}}
+
+/* Step 3 combined profile form */
+.registration-stage:has(.registration-step3-form){justify-content:flex-start;max-width:780px;padding-top:12px}
+.registration-step3-heading{margin-bottom:18px}
+.registration-step3-form{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;width:100%;max-width:780px;margin:0 auto}
+.registration-form-card{padding:17px 19px;border:1px solid #e7edf6;border-radius:18px;background:linear-gradient(145deg,#fff,#f9fbff);box-shadow:0 10px 28px rgba(21,65,119,.055)}
+.registration-form-card h2{display:flex;align-items:center;gap:9px;margin:0 0 11px;color:#172b48;font-size:13px;font-weight:800}
+.registration-form-card h2>span{display:grid;width:30px;height:30px;place-items:center;border-radius:10px;background:#edf5ff;color:#1769e8}
+.registration-form-card-hint{margin:-5px 0 8px;color:#8290a5;font-size:11px}
+.registration-step3-fields{display:grid;gap:3px}
+.registration-step3-fields .registration-input-row,.registration-step3-fields .registration-phone-row{min-height:48px;gap:9px}
+.registration-step3-fields .registration-input-row input,.registration-step3-fields .registration-phone-row input{font-size:13px}
+.registration-step3-fields .registration-country-select select{max-width:115px;font-size:11px}
+.registration-step3-submit{grid-column:1/-1;width:100%;margin-top:0}
+@media(max-width:850px){.registration-stage:has(.registration-step3-form){max-width:620px}.registration-step3-form{grid-template-columns:1fr;max-width:480px}.registration-step3-submit{grid-column:auto}.registration-main:has(.registration-step3-form){overflow-y:auto}}
+@media(max-width:640px){.registration-stage:has(.registration-step3-form){padding-top:0}.registration-step3-heading{margin-bottom:14px}.registration-form-card{padding:14px 15px}.registration-step3-form{gap:10px}}

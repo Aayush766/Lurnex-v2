@@ -1,0 +1,367 @@
+/* ============================================================
+   LURNEX FAQ SECTION — MODERN REDESIGN
+============================================================ */
+
+:root {
+  --faq-primary: #087ff5;
+  --faq-primary-hover: #0266d6;
+  --faq-title: #071b3a;
+  --faq-text: #475569;
+  --faq-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+
+/* Background Effects */
+.faq-bg-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.faq-bg-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(8, 127, 245, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+}
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+.faq-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.faq-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.faq-heading-group {
+  max-width: 650px;
+}
+
+/* Eyebrow Badge */
+.faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(8, 127, 245, 0.2);
+  color: var(--faq-primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(8, 127, 245, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.faq-eyebrow-icon {
+  animation: pulse 2s infinite;
+}
+
+/* Title */
+.faq-title {
+  margin: 0;
+  color: var(--faq-title);
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.faq-title-gradient {
+  background: linear-gradient(135deg, #087ff5 0%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faq-subtitle {
+  margin: 10px 0 0;
+  color: var(--faq-text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* View All Button */
+.faq-view-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(8, 127, 245, 0.25);
+  background: #ffffff;
+  color: var(--faq-primary);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(8, 127, 245, 0.05);
+  transition: all 0.25s var(--faq-ease);
+}
+
+.faq-view-all:hover {
+  background: var(--faq-primary);
+  color: #ffffff;
+  border-color: var(--faq-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(8, 127, 245, 0.2);
+}
+
+.faq-arrow-icon {
+  transition: transform 0.25s var(--faq-ease);
+}
+
+.faq-view-all:hover .faq-arrow-icon {
+  transform: translateX(3px);
+}
+
+/* ============================================================
+   FAQ GRID
+============================================================ */
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* ============================================================
+   FAQ ITEM
+============================================================ */
+
+.faq-item {
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s var(--faq-ease);
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  border-color: rgba(8, 127, 245, 0.3);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
+}
+
+.faq-item-open {
+  border-color: rgba(8, 127, 245, 0.4);
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(8, 127, 245, 0.08);
+}
+
+/* Accent indicator line when open */
+.faq-item-open::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #087ff5 0%, #1d4ed8 100%);
+  border-radius: 4px 0 0 4px;
+}
+
+/* ============================================================
+   QUESTION BUTTON
+============================================================ */
+
+.faq-question {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.faq-question-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* FAQ Icon Badge */
+.faq-icon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #f0f7ff;
+  color: var(--faq-primary);
+  transition: all 0.25s var(--faq-ease);
+}
+
+.faq-item-open .faq-icon {
+  background: var(--faq-primary);
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(8, 127, 245, 0.25);
+}
+
+.faq-question-text {
+  color: var(--faq-title);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Chevron Button Badge */
+.faq-chevron {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #64748b;
+  transition: all 0.3s var(--faq-ease);
+}
+
+.faq-chevron-open {
+  transform: rotate(180deg);
+  background: #e0f2fe;
+  color: var(--faq-primary);
+}
+
+/* ============================================================
+   ANSWER ACCORDION
+============================================================ */
+
+.faq-answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s var(--faq-ease);
+}
+
+.faq-answer-open {
+  grid-template-rows: 1fr;
+}
+
+.faq-answer {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 20px 0 66px;
+  opacity: 0;
+  transition: opacity 0.25s ease, padding 0.3s var(--faq-ease);
+}
+
+.faq-answer p {
+  margin: 0;
+  color: var(--faq-text);
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.faq-answer-open .faq-answer {
+  padding-bottom: 20px;
+  opacity: 1;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+@media (max-width: 1024px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .faq-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-section {
+    padding: 50px 0;
+  }
+
+  .faq-container {
+    padding: 0 16px;
+  }
+
+  .faq-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .faq-view-all {
+    width: 100%;
+  }
+
+  .faq-title {
+    font-size: 26px;
+  }
+
+  .faq-question {
+    padding: 14px 16px;
+  }
+
+  .faq-question-text {
+    font-size: 13px;
+  }
+
+  .faq-answer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .faq-answer p {
+    font-size: 12px;
+  }
+}
