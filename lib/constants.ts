@@ -9,7 +9,15 @@ export const navItems = [
   { label: "Blog", href: "/blog" }
 ];
 
-export const courses = [
+export const courses: {
+  title: string;
+  href: string;
+  image: string;
+  alt: string;
+  description: string;
+  features: string[];
+  badge?: string;
+}[] = [
   {
     title: "IGCSE Curriculum",
     href: "/courses/igcse",
