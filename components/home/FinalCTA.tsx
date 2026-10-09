@@ -211,10 +211,9 @@ export function FinalCTA() {
                   defaultValue="+91"
                   aria-label="Country code"
                 >
-                  <option value="+91">+91</option>
-                  <option value="+1">+1</option>
-                  <option value="+44">+44</option>
-                  <option value="+971">+971</option>
+                  {registrationCountries.filter((item) => item.name !== "Other").map((item) => (
+                    <option key={`${item.name}-${item.dialCode}`} value={item.dialCode}>{item.dialCode} · {item.name}</option>
+                  ))}
                 </select>
                 <span className="cta-country-chevron">▾</span>
               </div>

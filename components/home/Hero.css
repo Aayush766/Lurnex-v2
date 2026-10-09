@@ -99,7 +99,7 @@
    LEFT CONTENT
    ============================================================ */
 
-.hero-content {
+.hero .hero-content {
   position: relative;
   z-index: 20;
   max-width: 720px;
@@ -439,7 +439,7 @@
     padding-top: 16px;
     padding-bottom: 40px;
   }
-  .hero-content {
+  .hero .hero-content {
     width: 100%;
   }
   .hero-features {

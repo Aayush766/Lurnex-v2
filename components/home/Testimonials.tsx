@@ -1,6 +1,5 @@
  "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
 import { testimonials } from "@/lib/constants";
@@ -41,7 +40,9 @@ export function Testimonials() {
               <p className="mt-2 min-h-[72px] text-[12px] leading-4.5 text-slate-600">“{t.quote}”</p>
               <div className="mt-3 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <Image src={t.avatar} alt={`${t.name} avatar`} width={40} height={40} className="h-9 w-9 rounded-full object-cover"/>
+                  <span aria-label={`${t.name} initials`} className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#087FF5] to-[#7054D8] text-[10px] font-extrabold tracking-wide text-white shadow-sm">
+                    {t.name.trim().split(/\s+/).slice(0, 2).map((part) => part[0]).join("").toUpperCase()}
+                  </span>
                   <div><div className="text-[11px] font-extrabold text-[#071B3A]">{t.name}</div><div className="text-[9px] text-slate-400">{t.location}</div></div>
                 </div>
                 <div className="flex text-[#FFB21A]" aria-label="5 out of 5 stars">{Array.from({length:5}).map((_,s)=><Star key={s} size={12} fill="currentColor"/>)}</div>

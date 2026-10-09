@@ -31,7 +31,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
           <div>
           <Link href="/locations" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-blue-50 transition hover:bg-white/15"><ArrowLeft size={16}/> All locations</Link>
           <div className="mt-12 flex flex-wrap items-center gap-4"><span className="grid h-16 w-16 place-items-center rounded-2xl border border-white/10 bg-white/10 text-4xl">{locationFlag(location)}</span><span className="rounded-full bg-cyan-300/15 px-3 py-1.5 text-xs font-bold uppercase tracking-[.13em] text-cyan-200">{locationRegion(location)} · Online learning</span></div>
-          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">Personalised online tutoring in <span className="text-sky-300">{location.name}.</span></h1>
+          <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">Personalised online tutoring in <span className="text-white">{location.name}.</span></h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-blue-100/80">Live one-to-one support for IB, IGCSE, CBSE, SAT, JEE and NEET students in {location.cities.slice(0, 3).join(", ")} and across {location.name}.</p>
           <div className="mt-8 flex flex-wrap gap-2">{location.cities.map((city) => <span key={city} className="rounded-full border border-white/15 bg-white/[.07] px-3.5 py-2 text-xs text-blue-50">{city}</span>)}</div>
           </div>

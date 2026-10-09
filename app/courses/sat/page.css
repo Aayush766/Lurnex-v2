@@ -258,3 +258,8 @@ body:has(.sat-page) > footer { display: none; }
   .sat-future-copy h2 { font-size: 21px; }
 }
 .sat-page button.sat-expert-btn,.sat-page button.sat-blue-btn,.sat-page button.sat-purple-btn,.sat-page button.sat-outline-link{font-family:inherit;cursor:pointer;border:0}.sat-page button.sat-outline-link{border:1px solid #d8e2f0}.sat-download-lead{width:100%;min-height:49px;padding:7px 0;border:0;border-top:1px solid #edf3f8;background:transparent;display:grid;grid-template-columns:28px 1fr 17px;gap:7px;align-items:center;text-align:left;color:#20376f;font:inherit;cursor:pointer}.sat-download-lead b{display:block;font-size:10px}.sat-download-lead small{display:block;color:#7584a0;font-size:9px;margin-top:3px}.sat-download-lead>svg{color:#1769e8}.sat-download-lead:hover{background:#f7fbff}
+
+@media(max-width:720px){
+  .sat-left-column .sat-nav-card{display:block}
+  .sat-score-panel{display:block;margin:0 12px 12px;border-left:0;border-top:1px solid #d8e8f8;border-radius:10px}
+}

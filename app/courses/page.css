@@ -42,7 +42,7 @@
   border-bottom: 1px solid #edf2f7;
 }
 
-.hero-content {
+.courses-page .hero-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -345,7 +345,7 @@
 
 .courses-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -809,7 +809,11 @@ button.cta-button {
 ========================================================= */
 
 @media (max-width: 1024px) {
-  .hero-content {
+  .courses-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .courses-page .hero-content {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -828,13 +832,16 @@ button.cta-button {
 }
 
 @media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
   .filter-bar {
     overflow-x: auto;
   }
 
-  .filter-label {
-    display: none;
-  }
+  .filter-label { display: flex; }
 
   .cta-box {
     flex-direction: column;
@@ -848,5 +855,11 @@ button.cta-button {
 
   .language-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .courses-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

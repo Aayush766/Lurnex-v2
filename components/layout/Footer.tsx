@@ -11,7 +11,7 @@ const quickLinks = [
 ] as const;
 
 const socialLinks = [
-  { label: "WhatsApp", href: "https://wa.me/919990802009", icon: MessageCircle },
+  { label: "WhatsApp", href: "https://wa.me/919990054003", icon: MessageCircle },
   { label: "Instagram", href: "https://www.instagram.com/lurnex.me", icon: Instagram },
 ];
 
@@ -62,7 +62,7 @@ export function Footer() {
           <div>
             <h2 className="mb-4 text-lg font-semibold text-white">Contact</h2>
             <a href="mailto:support@lurnex.me" className="block text-slate-400 transition-colors hover:text-white">support@lurnex.me</a>
-            <a href="tel:+919990802009" className="mt-1 block text-slate-400 transition-colors hover:text-white">+91-9990-80-2009</a>
+            <a href="tel:+919990054003" className="mt-1 block text-slate-400 transition-colors hover:text-white">+91-9990-054003</a>
 
             <h2 className="mb-4 mt-6 text-lg font-semibold text-white">Follow Us</h2>
             <div className="flex flex-wrap gap-4">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BookOpen, Brain, Globe2, GraduationCap, Sparkles, TrendingUp, Users, Video } from "lucide-react";
+import { TestimonialsCarousel } from "@/components/about/TestimonialsCarousel";
 
 export const metadata: Metadata = {
   title: "About lurnex | Personalised Learning, Built Around You",
@@ -14,12 +15,6 @@ const difference = [
   { icon: Video, title: "Live one-to-one classes", text: "Focused sessions with an experienced tutor and room for real conversation.", tone: "purple" },
   { icon: BookOpen, title: "Outcome-focused teaching", text: "Build understanding through clear teaching and purposeful practice.", tone: "green" },
   { icon: Brain, title: "Structured progress", text: "Useful updates, detailed reports and guidance to keep learners on track.", tone: "orange" },
-];
-
-const testimonials = [
-  { quote: "Lurnex helped me understand concepts so clearly. The personalised guidance made a huge difference in my preparation.", name: "Aarav Sharma", program: "JEE Aspirant", initials: "AS", color: "bg-[#dceeff] text-[#087ff5]" },
-  { quote: "The one-to-one classes are amazing. My mentor always motivates me and helps me stay on track.", name: "Riya Mehta", program: "NEET Aspirant", initials: "RM", color: "bg-[#e9e2ff] text-[#7044df]" },
-  { quote: "The study material and practice tests are top-notch. Lurnex truly understands student needs.", name: "Kabir Khan", program: "SAT Aspirant", initials: "KK", color: "bg-[#d9f7ec] text-[#0a9b71]" },
 ];
 
 const pathways = [
@@ -39,7 +34,7 @@ export default function AboutPage() {
         <div className="container-shell relative min-h-[600px] pb-28 pt-14 sm:min-h-[650px] sm:pt-20 lg:min-h-[420px] lg:pb-24 lg:pt-10">
           <div className="relative z-20 max-w-[560px] lg:pt-5">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/[.06] px-3 py-1.5 text-[10px] font-extrabold tracking-[.14em] text-white"><Sparkles size={13}/> ABOUT LURNEX</span>
-            <h1 className="mt-4 max-w-[570px] text-[40px] font-extrabold leading-[.98] tracking-[-.045em] sm:text-5xl lg:text-[46px]">Redefining how students <span className="text-[#087ff5]">learn,</span> speak and succeed.</h1>
+            <h1 className="mt-4 max-w-[570px] text-[40px] font-extrabold leading-[.98] tracking-[-.045em] text-white sm:text-5xl lg:text-[46px]">Redefining how students <span className="text-[#087ff5]">learn,</span> speak and succeed.</h1>
             <p className="mt-4 max-w-[475px] text-sm leading-[1.65] text-blue-50/90 sm:text-[15px]">At lurnex, we believe every student is unique. That’s why we build personalised, technology-driven learning experiences that help them discover their potential and achieve their goals.</p>
             <div className="mt-5 flex flex-wrap gap-2"><Link href="/courses" className="inline-flex items-center gap-2 rounded-full bg-[#087ff5] px-5 py-2.5 text-[11px] font-extrabold text-white shadow-lg shadow-blue-950/30 transition hover:bg-blue-500">Explore our Programmes <ArrowRight size={14}/></Link><Link href="#our-approach" className="inline-flex items-center gap-2 rounded-full border border-white/50 px-5 py-2.5 text-[11px] font-bold text-white transition hover:bg-white/10">Our Approach <ArrowDown size={14}/></Link></div>
           </div>
@@ -82,18 +77,17 @@ export default function AboutPage() {
 
       {/* Global impact */}
       <section className="container-shell grid items-center gap-5 pb-10 md:grid-cols-2 md:pb-12">
-        <div className="relative min-h-[220px] overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#edf6ff] to-white sm:min-h-[260px]"><Image src="/assets/images/about_us.png" alt="Students learning across a range of lurnex programmes" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center"/></div>
+        <div className="relative mx-auto min-h-[260px] w-full max-w-[560px] overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#edf6ff] to-white sm:min-h-[320px]"><Image src="/assets/images/about_us.png" alt="Students learning across a range of lurnex programmes" fill sizes="(max-width: 768px) 100vw, 560px" className="object-contain object-center"/></div>
         <div className="py-2 md:pl-2"><span className="text-[9px] font-extrabold tracking-[.2em] text-[#087ff5]">OUR GLOBAL IMPACT</span><h2 className="mt-2 text-[29px] font-extrabold leading-[1.05] tracking-tight sm:text-[34px]">Learning without <span className="text-[#087ff5]">boundaries.</span></h2><p className="mt-3 max-w-lg text-[12px] leading-6 text-slate-600">From India to the world, lurnex empowers students with high-quality education, expert mentorship and the right resources to achieve their dreams.</p><div className="mt-5 grid grid-cols-3 gap-2">{[{ icon: Users, top: "15+", bottom: "Countries" }, { icon: Users, top: "Global", bottom: "Student Community" }, { icon: BookOpen, top: "Diverse", bottom: "Curricula" }].map(({ icon: Icon, top, bottom }, index) => <div key={top} className="flex items-center gap-2"><span className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${index === 1 ? "bg-violet-100 text-violet-600" : index === 2 ? "bg-sky-100 text-sky-600" : "bg-orange-100 text-orange-600"}`}><Icon size={15}/></span><span><strong className="block text-[12px] font-extrabold">{top}</strong><small className="block text-[8px] text-slate-600">{bottom}</small></span></div>)}</div></div>
       </section>
 
       {/* What we teach */}
       <section className="container-shell pb-10"><div className="flex flex-wrap items-center gap-2">{pathways.map((path) => <Link key={path.tag} href={path.href} className="rounded-full border border-slate-100 bg-white px-4 py-2 shadow-sm transition hover:border-sky-200 hover:text-[#087ff5]"><small className="block text-[8px] font-extrabold tracking-wider text-[#087ff5]">{path.tag}</small><strong className="text-[10px]">{path.title}</strong></Link>)}</div></section>
 
-      {/* Testimonials */}
-      <section className="bg-[#fafdff] py-8"><div className="container-shell"><div className="flex items-center justify-between"><div><span className="text-[9px] font-extrabold tracking-[.2em] text-[#087ff5]">WHAT OUR STUDENTS SAY</span><h2 className="mt-1 text-[23px] font-extrabold tracking-tight">Confidence today. Success tomorrow.</h2></div><div className="hidden gap-2 sm:flex"><button aria-label="Previous testimonials" className="grid h-7 w-7 place-items-center rounded-full bg-[#eaf4ff] text-[#087ff5]"><ArrowRight className="rotate-180" size={14}/></button><button aria-label="Next testimonials" className="grid h-7 w-7 place-items-center rounded-full border border-sky-200 bg-white text-[#087ff5]"><ArrowRight size={14}/></button></div></div><div className="mt-4 grid gap-3 md:grid-cols-3">{testimonials.map((item) => <article key={item.name} className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm"><span className="text-2xl font-black leading-none text-[#087ff5]">“</span><p className="min-h-[45px] text-[10px] leading-[1.55] text-slate-600">“{item.quote}”</p><div className="mt-3 flex items-center gap-2.5 border-t border-slate-100 pt-3"><span className={`grid h-9 w-9 place-items-center rounded-full text-[10px] font-extrabold ${item.color}`}>{item.initials}</span><span><strong className="block text-[10px] font-extrabold">{item.name}</strong><small className="text-[9px] text-slate-500">{item.program}</small></span></div></article>)}</div></div></section>
+      <TestimonialsCarousel />
 
       {/* CTA */}
-      <section className="mt-7 rounded-t-[2rem] bg-gradient-to-r from-[#061b38] via-[#0a3470] to-[#064987] py-8 text-white"><div className="container-shell flex flex-col justify-between gap-5 sm:flex-row sm:items-center"><div><h2 className="text-2xl font-extrabold tracking-tight">Your brighter future starts here.</h2><p className="mt-1 text-[11px] text-blue-100/80">Join students who are learning, growing and achieving with lurnex.</p></div><div className="flex flex-wrap gap-2"><Link href="/courses" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[10px] font-extrabold text-[#087ff5]">Explore Our Programmes <ArrowRight size={13}/></Link><Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/50 px-4 py-2.5 text-[10px] font-bold text-white">Talk to an Expert <ArrowRight size={13}/></Link></div></div></section>
+      <section className="mt-7 rounded-t-[2rem] bg-gradient-to-r from-[#061b38] via-[#0a3470] to-[#064987] py-8 text-white"><div className="container-shell flex flex-col justify-between gap-5 sm:flex-row sm:items-center"><div><h2 className="text-2xl font-extrabold tracking-tight text-white">Your brighter future starts here.</h2><p className="mt-1 text-[11px] text-blue-100/80">Join students who are learning, growing and achieving with lurnex.</p></div><div className="flex flex-wrap gap-2"><Link href="/courses" className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[10px] font-extrabold text-[#087ff5]">Explore Our Programmes <ArrowRight size={13}/></Link><Link href="/contact" className="inline-flex items-center gap-2 rounded-full border border-white/50 px-4 py-2.5 text-[10px] font-bold text-white">Talk to an Expert <ArrowRight size={13}/></Link></div></div></section>
     </main>
   );
 }

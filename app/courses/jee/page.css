@@ -116,3 +116,8 @@ body:has(.jee-page) > footer { display: none; }
 @media(max-width:760px){.jee-shell{width:calc(100% - 24px)}.jee-topbar{height:60px}.jee-layout{gap:12px}.jee-hero{min-height:410px;padding:17px;border-radius:18px}.jee-hero h1{font-size:30px}.jee-hero-copy>p{font-size:11px}.jee-hero-visual{height:210px}.jee-hero-image-frame{height:205px}.jee-hero-stats b{font-size:10px}.jee-hero-stats small{font-size:7px}.jee-content-card{padding:15px}.jee-section-heading h2{font-size:15px}.jee-section-heading p{font-size:9px}.jee-resource-card{min-height:88px}}
 @media(max-width:460px){.jee-hero{min-height:420px}.jee-hero h1{font-size:27px}.jee-resource-grid,.jee-right-sidebar{grid-template-columns:1fr}}
 
+@media(max-width:760px){
+  .jee-free-card,.jee-guidance-card{display:block;min-height:145px}
+  .jee-hero-stats small{display:block}
+}
+

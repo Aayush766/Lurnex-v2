@@ -971,4 +971,17 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 840px) {
+  .program-rail {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+    gap: 12px;
+  }
+  .hero-art {
+    display: flex;
+    height: 200px;
+  }
+}
 .program-page button.sidebar-promo-btn,.program-page button.primary-action,.program-page button.exam-card-action,.program-page button.text-action,.program-page button.cta-btn,.program-page button.rail-cta-btn{font-family:inherit;cursor:pointer;border:0}.program-page button.exam-card-action{grid-column:2;display:inline-flex;align-items:center;gap:5px;padding:0;background:transparent;color:var(--program-accent);font-size:12px;font-weight:700;text-align:left}.program-page button.exam-card-action:hover{text-decoration:underline}

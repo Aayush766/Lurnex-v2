@@ -117,3 +117,8 @@ body:has(.curriculum-page) .curriculum-header{display:none}
 /* Lead dialog must stay above the fixed site header on every route. */
 .curriculum-modal-backdrop{position:fixed!important;inset:0!important;z-index:2147483000!important;transform:none!important}
 .curriculum-lead-modal{position:relative;z-index:1}
+
+@media(max-width:720px){
+  .curriculum-left .curriculum-nav-card{display:block}
+  .curriculum-hero-panel{display:block}
+}

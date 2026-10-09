@@ -15,9 +15,9 @@ import "./Hero.css";
 import { LeadCaptureButton } from "@/components/ui/LeadCaptureButton";
 
 const features = [
-  { text: "Live & Recorded Classes", color: "#087ff5" },
-  { text: "Expert Faculty", color: "#06b6d4" },
-  { text: "Personalised Learning", color: "#7c3aed" },
+  { text: "Live & Recorded Classes", color: "#10b981" },
+  { text: "Expert Faculty", color: "#10b981" },
+  { text: "Personalised Learning", color: "#10b981" },
   { text: "Regular Tests & Analytics", color: "#10b981" },
 ];
 
