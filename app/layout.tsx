@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import favicon from "./favicon.png";
 import "./globals.css";
 import "@/components/courses/curriculum/curriculum-page.css";
 import { defaultDescription, siteUrl } from "@/lib/seo";
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     description: defaultDescription,
     images: ["/assets/images/herogirl.png"]
   },
-  icons: { icon: "/icon.svg" }
+  icons: { icon: favicon.src }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
