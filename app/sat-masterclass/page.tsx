@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import SATMasterclass from "./sat-masterclass";
 import "./sat-masterclass.css";
 
-const pageTitle = "SAT Master Class 2026 | Lurnex";
+const pageTitle = "November SAT Prep Masterclass | Lurnex";
 const pageDescription =
-  "Get ready for the November SAT with focused Math, Reading & Writing strategies, expert-led practice, and targeted preparation on October 24 and 31.";
+  "Prepare for the November 7 SAT with Lurnex. Join focused Math and Reading & Writing masterclass sessions on October 24 or 31, 2026.";
 
 export const metadata: Metadata = {
   title: pageTitle,
