@@ -25,19 +25,19 @@ export const metadata: Metadata = {
   authors: [{ name: "lurnex" }],
   creator: "lurnex",
   publisher: "lurnex",
-  alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    url: siteUrl,
     title: "lurnex | Online Learning, JEE, NEET, SAT & Global Academic Programs",
     description: defaultDescription,
-    siteName: "lurnex"
+    siteName: "lurnex",
+    images: [{ url: "/assets/images/herogirl.png", alt: "Learn online with lurnex" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "lurnex | Online Learning & Global Academic Programs",
-    description: defaultDescription
+    description: defaultDescription,
+    images: ["/assets/images/herogirl.png"]
   },
   icons: { icon: "/icon.svg" }
 };

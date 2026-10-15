@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import { RegisterForm } from "@/components/forms/RegisterForm";
+
+export const metadata: Metadata = {
+  title: "Create your lurnex account",
+  robots: { index: false, follow: false },
+};
 
 type Props = { searchParams: Promise<{ program?: string; redirect?: string }> };
 

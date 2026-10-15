@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Online Language Courses | English, Hindi and French",
+  description: "Explore online English, Hindi and French courses with personalised tutoring and practical language learning.",
+  alternates: { canonical: "/courses/languages" },
+};
+
 const languages = [
   { title: "English Communication Mastery", subtitle: "Public Speaking & Creative Writing", description: "Build 21st-century confidence through public speaking, debates, vlogs, podcasts and creative writing.", modules: "Phonics, conversation, vocabulary, storytelling and leadership" },
   { title: "Hindi Language & Culture", subtitle: "Connect with Your Roots", description: "A modern, engaging approach to spoken and academic Hindi through storytelling and real-life scenarios.", modules: "Varnamala, grammar, poetry, creative writing and debating" },

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | lurnex",
+  description: "Read the lurnex privacy policy.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function Page() {
   return (

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Learn With lurnex | Personalised Online Learning",
+  description: "Explore personalised online learning, mentoring and academic support with lurnex.",
+  alternates: { canonical: "/learn-with-us" },
+};
 
 export default function Page() {
   return (

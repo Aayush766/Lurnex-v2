@@ -62,6 +62,11 @@ Robots and sitemap are generated from:
 `app/robots.ts`
 `app/sitemap.ts`
 
+The sitemap includes public site routes, courses, locations, blog posts and
+published CMS pages. CMS pages are refreshed every five minutes from the CMS
+list endpoint (`/v1/pages?status=published`). Set `CMS_SITEMAP_ENDPOINT` if the
+backend exposes its published-page list at a different path.
+
 Update `siteUrl` to the real production domain before deployment.
 
 ## Content

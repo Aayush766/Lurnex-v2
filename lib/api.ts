@@ -58,3 +58,41 @@ export const learningApi = {
 
 export type StudentProfile = { id?: string; name: string; email: string; avatarUrl?: string; curriculum?: string; course?: string; grade?: string; school?: string; country?: string; mobile?: string; parentName?: string; parentEmail?: string; parentMobile?: string; emailVerified?: boolean };
 export type StudentDashboard = { profile: StudentProfile; activity?: Array<{ id: string; type: string; title: string; createdAt: string; href?: string }>; downloads?: Array<{ id: string; title: string; createdAt: string; href?: string }>; forumQuestions?: Array<{ id: string; title: string; createdAt: string; href?: string }>; stats?: { learningActivities?: number; downloads?: number; forumQuestions?: number } };
+
+export type SatMasterclassEnquiry = {
+  studentName: string;
+  parentName?: string;
+  email: string;
+  whatsappNumber: string;
+  grade: string;
+  satFocus: "Math" | "Reading & Writing" | "Both";
+  preferredSession: "October 24" | "October 31" | "Both";
+  targetSatDate: string;
+  pageUrl: string;
+  referrerUrl: string | null;
+  utm: { source: string; medium: string; campaign: string; term: string; content: string };
+};
+
+export type SatMasterclassEnquiryResponse = { message?: string; leadId?: string };
+
+export async function registerSatMasterclassEnquiry(form: SatMasterclassEnquiry): Promise<SatMasterclassEnquiryResponse> {
+  const token = sessionToken();
+  const response = await fetch(`${apiBase}/leads/sat-masterclass`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+    body: JSON.stringify(form),
+  });
+  handleUnauthorized(response, token);
+
+  const result = await response.json().catch(() => null);
+  if (response.status !== 201) {
+    const message = result && typeof result.message === "string"
+      ? result.message
+      : response.ok
+        ? "The enquiry could not be confirmed. Please try again."
+        : "We could not send your enquiry. Please try again.";
+    throw new ApiError(message, response.status, response.headers.get("Retry-After"));
+  }
+
+  return result && typeof result === "object" ? result as SatMasterclassEnquiryResponse : {};
+}

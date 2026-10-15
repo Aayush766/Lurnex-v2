@@ -1,4 +1,5 @@
 import { courses, faqs } from "./constants";
+import { siteUrl } from "./seo";
 
 export function getOrganizationSchema() {
   return {
@@ -6,16 +7,24 @@ export function getOrganizationSchema() {
     "@graph": [
       {
         "@type": "EducationalOrganization",
-        "@id": "https://lurnex.me/#organization",
+        "@id": `${siteUrl}/#organization`,
         name: "lurnex",
         slogan: "Learn. Grow. Excel.",
-        url: "https://lurnex.me",
-        description: "Global online learning and personalised academic tutoring."
+        url: siteUrl,
+        logo: `${siteUrl}/logo.png`,
+        description: "Global online learning and personalised academic tutoring.",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+919990054003",
+          contactType: "customer support",
+          areaServed: "Worldwide",
+          availableLanguage: ["English", "Hindi", "French"],
+        },
       },
       {
         "@type": "WebSite",
-        "@id": "https://lurnex.me/#website",
-        url: "https://lurnex.me",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
         name: "lurnex",
         publisher: { "@id": "https://lurnex.me/#organization" }
       },
@@ -26,9 +35,9 @@ export function getOrganizationSchema() {
         provider: {
           "@type": "EducationalOrganization",
           name: "lurnex",
-          sameAs: "https://lurnex.me"
+          sameAs: siteUrl
         },
-        url: `https://lurnex.me${course.href}`
+        url: `${siteUrl}${course.href}`
       })),
       {
         "@type": "FAQPage",

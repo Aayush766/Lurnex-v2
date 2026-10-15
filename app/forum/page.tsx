@@ -3,7 +3,8 @@ import { ForumPage } from "@/components/forum/ForumPage";
 
 export const metadata: Metadata = {
   title: "Student Forum",
-  description: "Ask academic questions and learn with the lurnex student community."
+  description: "Ask academic questions and learn with the lurnex student community.",
+  alternates: { canonical: "/forum" },
 };
 
 export default function Page() {
