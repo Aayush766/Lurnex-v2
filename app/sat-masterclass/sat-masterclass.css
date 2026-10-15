@@ -260,3 +260,232 @@ body:has(.sm-page)>header,body:has(.sm-page)>footer{display:none}body:has(.sm-pa
   .sm-faq{padding-top:22px}
   .sm-bottom-cta{min-height:unset}
 }
+
+/* Responsive safety layer: keep every section usable on narrow phones and tablets. */
+.sm-page{width:100%;min-width:0;overflow-x:clip}
+.sm-page img,.sm-page svg{max-width:100%}
+.sm-hero-inner,.sm-exam-wrap,.sm-content,.sm-bottom-cta,.sm-footer{min-width:0}
+.sm-hero-inner>* ,.sm-learn>* ,.sm-register-layout>*{min-width:0}
+.sm-hero h1,.sm-exam-title h2,.sm-section-heading h2,.sm-learn-copy h2,.sm-register-heading h2,.sm-faq-heading h2{overflow-wrap:anywhere}
+.sm-exam-session,.sm-plan-card,.sm-mentor-copy,.sm-form label{min-width:0}
+.sm-form input,.sm-form select{min-width:0;max-width:100%}
+
+@media (max-width:700px){
+  .sm-header-inner{width:calc(100% - 28px)}
+  .sm-hero-inner{width:calc(100% - 32px)}
+  .sm-hero-copy{width:100%}
+  .sm-hero h1{font-size:clamp(32px,9vw,44px);overflow-wrap:normal}
+  .sm-event-row{align-items:flex-start}
+  .sm-event-row span{white-space:normal}
+  .sm-exam-wrap,.sm-content{width:calc(100% - 32px)}
+  .sm-exam-banner{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sm-exam-session{overflow-wrap:anywhere}
+  .sm-plan-body header{flex-wrap:wrap}
+  .sm-time-pill{white-space:normal}
+  .sm-mentor{grid-template-columns:minmax(0,104px) minmax(0,1fr)}
+  .sm-mentor-cta{white-space:normal;text-align:center}
+  .sm-form{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sm-form label{overflow-wrap:anywhere}
+  .sm-form input,.sm-form select{font-size:16px; /* prevent mobile browser zoom on focus */}
+  .sm-bottom-cta{grid-template-columns:minmax(0,1fr) auto}
+  .sm-bottom-copy,.sm-bottom-details{min-width:0}
+  .sm-bottom-details span{white-space:normal}
+  .sm-footer{flex-wrap:wrap;padding:8px 0 58px}
+  .sm-footer nav{flex-wrap:wrap;justify-content:flex-end}
+}
+
+@media (max-width:480px){
+  .sm-header-cta{min-height:34px;padding-inline:8px;font-size:8px}
+  .sm-button{gap:5px}
+  .sm-hero-inner{padding-top:23px}
+  .sm-hero h1{font-size:clamp(30px,8.7vw,39px)}
+  .sm-event-row{display:grid;gap:7px}
+  .sm-chips{align-items:stretch}
+  .sm-chips>span{max-width:100%;white-space:normal;min-height:32px;height:auto;padding-block:5px}
+  .sm-exam-banner{padding:13px;gap:8px}
+  .sm-exam-title h2{font-size:clamp(20px,6vw,24px)}
+  .sm-exam-session{gap:6px;padding:6px}
+  .sm-session-icon{width:28px;height:28px;flex:none}
+  .sm-exam-session b{font-size:11px}
+  .sm-exam-session>div>span{font-size:8px}
+  .sm-benefit-grid{grid-template-columns:minmax(0,1fr)}
+  .sm-benefit-card{min-height:0}
+  .sm-dashboard-bottom{grid-template-columns:minmax(0,1fr)}
+  .sm-chart-card,.sm-check-card{min-height:unset}
+  .sm-check-card{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .sm-check-card span{white-space:normal}
+  .sm-process{gap:5px;padding-inline:6px}
+  .sm-process b{font-size:8px}
+  .sm-process svg{flex:none}
+  .sm-plan-card{gap:8px;padding:12px}
+  .sm-mentor{grid-template-columns:minmax(0,1fr);text-align:center;justify-items:center;padding:16px}
+  .sm-mentor-image{width:112px;height:112px}
+  .sm-credentials{justify-content:center;flex-wrap:wrap}
+  .sm-mentor-cta{grid-column:1;width:100%}
+  .sm-register{padding:14px}
+  .sm-form{grid-template-columns:minmax(0,1fr)}
+  .sm-privacy-note,.sm-form-error{grid-column:1}
+  .sm-faq-list summary{grid-template-columns:18px minmax(0,1fr) 12px}
+  .sm-bottom-cta{grid-template-columns:minmax(0,1fr);gap:10px;padding:15px}
+  .sm-bottom-details,.sm-bottom-button{grid-column:1;grid-row:auto}
+  .sm-bottom-details{display:grid;gap:7px}
+  .sm-bottom-button{width:100%;font-size:9px}
+  .sm-footer{justify-content:center;text-align:center}
+  .sm-footer nav{width:100%;margin:0;justify-content:center}
+}
+
+@media (max-width:360px){
+  .sm-header-inner{gap:5px}
+  .sm-brand img{width:72px}
+  .sm-header-cta{font-size:7px;padding-inline:6px}
+  .sm-menu{padding:4px}
+  .sm-hero-inner,.sm-exam-wrap,.sm-content{width:calc(100% - 24px)}
+  .sm-hero h1{font-size:30px}
+  .sm-float-card{transform:scale(.72)}
+  .sm-exam-session{align-items:flex-start;flex-direction:column}
+  .sm-exam-session .sm-session-icon{display:none}
+  .sm-zone-note{font-size:6px}
+  .sm-check-card{grid-template-columns:minmax(0,1fr)}
+  .sm-mobile-cta{left:10px;right:63px}
+  .sm-whatsapp-float{right:10px}
+}
+
+@media (min-width:701px) and (max-width:900px){
+  .sm-header-inner,.sm-hero-inner,.sm-exam-wrap,.sm-content,.sm-footer{width:calc(100% - 40px)}
+  .sm-hero-inner{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+  .sm-hero h1{font-size:clamp(32px,4.3vw,42px)}
+  .sm-event-row{flex-wrap:wrap;gap:8px 14px}
+  .sm-exam-banner{grid-template-columns:minmax(0,1.3fr) 1px minmax(0,1fr) minmax(0,1fr);}
+  .sm-calendar-illustration{display:none}
+  .sm-zone-note{right:16px}
+  .sm-mentor{grid-template-columns:110px minmax(0,1fr);gap:14px;padding:16px}
+  .sm-mentor-image{width:110px;height:135px}
+  .sm-mentor-cta{grid-column:2;justify-self:start}
+  .sm-register-layout{grid-template-columns:minmax(0,1fr) 170px}
+  .sm-bottom-cta{grid-template-columns:minmax(0,1fr) minmax(150px,.7fr) auto;gap:12px;padding-inline:18px}
+}
+
+/* Mobile hero and registration form refinements. Keep these last to win over legacy rules. */
+@media (max-width:700px){
+  .sm-hero-inner{padding:26px 0 20px;gap:16px}
+  .sm-hero-copy{max-width:600px}
+  .sm-hero h1{max-width:15ch;margin:0 0 13px;font-size:clamp(34px,8.8vw,43px);line-height:1.06;letter-spacing:-.045em;text-wrap:balance}
+  .sm-hero h1 br{display:none}
+  .sm-hero-copy>p:not(.sm-hero-note){max-width:48ch;margin-bottom:14px;font-size:14px;line-height:1.55}
+  .sm-event-row{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0}
+  .sm-event-row span{font-size:11px}
+  .sm-chips{gap:7px;margin-bottom:14px}
+  .sm-chips>span{min-height:34px;height:auto;padding:6px 9px;font-size:9px;white-space:normal}
+  .sm-hero-cta{width:100%;max-width:340px;min-height:48px}
+  .sm-hero-note{font-size:10px!important;line-height:1.4}
+  .sm-hero-visual{aspect-ratio:1.38;margin-top:0;border-radius:20px}
+  .sm-hero-image{border-radius:20px;object-position:center 42%}
+
+  .sm-register-wrap{padding:24px 0 18px}
+  .sm-register{padding:20px 16px;border-radius:18px}
+  .sm-register-heading{margin-bottom:18px}
+  .sm-register-heading .sm-pill{margin-bottom:3px}
+  .sm-register-heading h2{max-width:19ch;margin:6px 0 8px;font-size:clamp(24px,6.8vw,30px);line-height:1.12;text-wrap:balance}
+  .sm-register-heading p{margin:0;font-size:13px;line-height:1.5}
+  .sm-register-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+  .sm-form{grid-template-columns:minmax(0,1fr);gap:13px}
+  .sm-form>label{gap:6px;font-size:12px;line-height:1.35;overflow-wrap:normal}
+  .sm-form input,.sm-form select{width:100%;height:48px;padding:0 12px;border-radius:9px;font-size:16px;line-height:normal}
+  .sm-form input::placeholder{font-size:14px}
+  .sm-submit{height:50px;margin-top:2px;border-radius:9px;font-size:11px;letter-spacing:.02em}
+  .sm-privacy-note{align-items:flex-start;font-size:10px;line-height:1.45;text-align:left}
+  .sm-privacy-note svg{flex:none;margin-top:1px}
+  .sm-form-error{font-size:12px;line-height:1.45}
+  .sm-support{padding:16px;border-radius:14px}
+  .sm-support h3{margin:10px 0 5px;font-size:14px}
+  .sm-support p{font-size:12px;line-height:1.45}
+  .sm-support>a{min-height:42px;font-size:11px}
+  .sm-success{padding:12px 0;min-height:190px}
+}
+
+@media (max-width:390px){
+  .sm-hero-inner{width:calc(100% - 28px);padding-top:21px}
+  .sm-hero h1{max-width:14ch;font-size:clamp(31px,8.6vw,35px)}
+  .sm-hero-copy>p:not(.sm-hero-note){font-size:13px}
+  .sm-hero-visual{aspect-ratio:1.25}
+  .sm-chips>span{font-size:8px;padding-inline:7px}
+  .sm-register-wrap>.sm-content{width:calc(100% - 24px)}
+  .sm-register{padding:18px 14px}
+  .sm-register-heading h2{font-size:24px}
+}
+
+/* On phones, keep the hero artwork clear and place its info tags beneath it. */
+@media (max-width:700px){
+  .sm-hero-visual{
+    height:auto;
+    aspect-ratio:auto;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    overflow:visible;
+    filter:none;
+  }
+  .sm-hero-image{
+    position:relative;
+    inset:auto;
+    grid-column:1/-1;
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:1.38;
+    object-fit:cover;
+    object-position:center 42%;
+    mask-image:none;
+  }
+  .sm-hero-circle{display:none}
+  .sm-float-card,
+  .sm-float-live,
+  .sm-float-hours,
+  .sm-float-exam{
+    position:relative;
+    inset:auto;
+    min-width:0;
+    min-height:48px;
+    justify-content:center;
+    gap:7px;
+    padding:7px 8px;
+    transform:none;
+    border-color:#e2edf7;
+    border-radius:10px;
+    box-shadow:0 5px 14px #18385810;
+  }
+  .sm-float-card>b{font-size:12px}
+  .sm-float-card small{font-size:8px}
+  .sm-float-exam{grid-column:1/-1}
+  .sm-float-exam>b{font-size:10px}
+}
+
+@media (max-width:390px){
+  .sm-hero-image{aspect-ratio:1.25}
+  .sm-float-card,.sm-float-live,.sm-float-hours,.sm-float-exam{min-height:44px;padding:6px}
+  .sm-float-card>span{width:20px;height:20px;flex:none}
+  .sm-float-card>b{font-size:11px}
+}
+
+.sm-testimonials{padding-top:34px;padding-bottom:30px}
+.sm-testimonials-heading{max-width:700px;margin:0 auto 20px;text-align:center}
+.sm-testimonials-heading h2{margin:8px 0 6px;font-size:clamp(24px,2.5vw,32px);line-height:1.12;letter-spacing:-.04em}
+.sm-testimonials-heading p{margin:0;color:#526783;font-size:13px;line-height:1.55}
+.sm-testimonial-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.sm-testimonial-card{position:relative;display:flex;min-width:0;flex-direction:column;padding:22px;border:1px solid #dfebf7;border-radius:17px;background:linear-gradient(150deg,#fff,#f7fbff);box-shadow:0 10px 27px #2447680a}
+.sm-testimonial-quote{width:22px;height:22px;margin-bottom:10px;color:#0878ff;opacity:.8}
+.sm-testimonial-card>p{flex:1;margin:0 0 20px;color:#405979;font-size:13px;line-height:1.65}
+.sm-testimonial-student{display:flex;align-items:center;gap:10px;padding-top:13px;border-top:1px solid #e6eef7}
+.sm-testimonial-student>span{width:38px;height:38px;display:grid;flex:none;place-items:center;border-radius:50%;background:#e7f2ff;color:#0878ff;font-size:12px;font-weight:850}
+.sm-testimonial-student>div{display:grid;gap:3px;min-width:0}
+.sm-testimonial-student b{color:#102d55;font-size:12px}
+.sm-testimonial-student small{color:#687c94;font-size:10px}
+@media(max-width:700px){
+  .sm-testimonials{padding-top:24px;padding-bottom:23px}
+  .sm-testimonials-heading{margin-bottom:15px}
+  .sm-testimonials-heading h2{font-size:24px}
+  .sm-testimonials-heading p{font-size:12px}
+  .sm-testimonial-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .sm-testimonial-card{padding:17px;border-radius:14px}
+  .sm-testimonial-card>p{font-size:12px;margin-bottom:14px}
+}
