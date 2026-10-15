@@ -603,16 +603,16 @@ main.sm-page{position:relative;width:100%;max-width:none;min-height:100vh;overfl
 .sm-batch-popup-icon{width:48px;height:48px;display:grid;place-items:center;margin:0 auto 12px;border-radius:15px;background:#e5f2ff;color:#0878ff}
 .sm-batch-popup-icon svg{width:24px;height:24px}
 .sm-batch-popup h2{margin:13px auto 15px;max-width:16ch;color:#09234a;font-size:27px;line-height:1.1;letter-spacing:-.04em}
-.sm-popup-countdown{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 auto 15px;padding:13px;border:1px solid #d9e9f8;border-radius:14px;background:#fff;text-align:left}
-.sm-popup-countdown strong{min-width:54px;color:#0878ff;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
-.sm-popup-countdown span{display:grid;gap:4px}
-.sm-popup-countdown b{color:#12345b;font-size:14px}
-.sm-popup-countdown small{color:#687c94;font-size:11px}
+.sm-popup-countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0 auto 10px;padding:12px;border:1px solid #d9e9f8;border-radius:14px;background:#fff}
+.sm-popup-countdown>div{display:grid;justify-items:center;gap:4px;padding:8px 3px;border-radius:9px;background:#f3f8ff}
+.sm-popup-countdown strong{color:#0878ff;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.sm-popup-countdown small{color:#687c94;font-size:9px;font-weight:750;text-transform:uppercase;letter-spacing:.04em}
+.sm-popup-local-time{display:block;margin:0 auto 14px;color:#687c94;font-size:10px;line-height:1.4}
 .sm-batch-popup>p{margin:0 auto 18px;max-width:35ch;color:#526783;font-size:13px;line-height:1.6}
 .sm-batch-popup>.sm-button{min-height:46px;padding-inline:20px;font-size:12px}
 @keyframes sm-popup-fade-in{from{opacity:0}to{opacity:1}}
 @keyframes sm-popup-rise{from{transform:translateY(12px) scale(.98);opacity:.7}to{transform:translateY(0) scale(1);opacity:1}}
-@media(max-width:480px){.sm-batch-popup{padding:26px 21px 22px;border-radius:19px}.sm-batch-popup h2{font-size:24px}.sm-popup-countdown strong{font-size:34px}}
+@media(max-width:480px){.sm-batch-popup{padding:26px 21px 22px;border-radius:19px}.sm-batch-popup h2{font-size:24px}.sm-popup-countdown{gap:5px;padding:9px}.sm-popup-countdown strong{font-size:25px}.sm-popup-countdown small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.sm-batch-popup-backdrop,.sm-batch-popup{animation:none}}
 
 /* Horizontal SAT masterclass highlights slider. */

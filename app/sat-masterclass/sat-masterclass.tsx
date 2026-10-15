@@ -59,30 +59,35 @@ export default function SATMasterclass() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const [showFloatingCta, setShowFloatingCta] = useState(true);
-  const [daysToFirstBatch, setDaysToFirstBatch] = useState<number | null>(null);
+  const [batchCountdown, setBatchCountdown] = useState<{ totalMs: number; days: number; hours: number; minutes: number; seconds: number } | null>(null);
   const [showBatchPopup, setShowBatchPopup] = useState(false);
   useEffect(() => {
     const updateCountdown = () => {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      const firstBatch = new Date(2026, 9, 24);
-      setDaysToFirstBatch(Math.round((firstBatch.getTime() - today.getTime()) / 86400000));
+      const firstBatch = new Date(2026, 9, 24, 11, 0, 0);
+      const totalMs = Math.max(firstBatch.getTime() - Date.now(), 0);
+      const totalSeconds = Math.floor(totalMs / 1000);
+      setBatchCountdown({
+        totalMs,
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+      });
     };
     updateCountdown();
-    const interval = window.setInterval(updateCountdown, 60000);
+    const interval = window.setInterval(updateCountdown, 1000);
     return () => window.clearInterval(interval);
   }, []);
   useEffect(() => {
-    if (daysToFirstBatch === null || daysToFirstBatch < 0 || sessionStorage.getItem("sat-first-batch-popup-dismissed")) return;
-    const timeout = window.setTimeout(() => setShowBatchPopup(true), 2800);
+    if (Date.now() >= new Date(2026, 9, 24, 11, 0, 0).getTime()) return;
+    const timeout = window.setTimeout(() => setShowBatchPopup(true), 2000);
     return () => window.clearTimeout(timeout);
-  }, [daysToFirstBatch]);
+  }, []);
   useEffect(() => {
     if (!showBatchPopup) return;
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setShowBatchPopup(false);
-        sessionStorage.setItem("sat-first-batch-popup-dismissed", "1");
       }
     };
     window.addEventListener("keydown", closeOnEscape);
@@ -218,7 +223,7 @@ export default function SATMasterclass() {
     <section className="sm-bottom-cta"><div className="sm-bottom-copy"><span className="sm-bottom-pill">LURNEX SAT MASTER CLASS</span><h2>Make Your Final Weeks Count.</h2><p>Prepare with purpose before the November SAT.</p></div><div className="sm-bottom-details"><span><CalendarDays/>24 &amp; 31 October 2026</span><span><Clock3/>11:00 AM – 2:00 PM</span></div>{cta("BOOK YOUR SEAT NOW", "Bottom", "sm-bottom-button")}<i className="sm-bottom-orb sm-bottom-orb-a"/><i className="sm-bottom-orb sm-bottom-orb-b"/></section>
 
     <footer className="sm-footer"><a href="#top" className="sm-footer-brand">Lurnex</a><span>Learn | Grow | Excel</span><nav><a href="/privacy">Privacy Policy</a><a href="https://www.instagram.com/lurnex.me/" target="_blank" rel="noreferrer">Instagram</a><a href="/contact">Contact</a></nav></footer>
-    {showBatchPopup && daysToFirstBatch !== null && daysToFirstBatch >= 0 && <div className="sm-batch-popup-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) { setShowBatchPopup(false); sessionStorage.setItem("sat-first-batch-popup-dismissed", "1"); } }}><section className="sm-batch-popup" role="dialog" aria-modal="true" aria-labelledby="sm-batch-popup-title"><button type="button" className="sm-batch-popup-close" aria-label="Close first batch countdown" onClick={() => { setShowBatchPopup(false); sessionStorage.setItem("sat-first-batch-popup-dismissed", "1"); }}><X/></button><span className="sm-batch-popup-icon"><Clock3/></span><span className="sm-pill">FIRST BATCH · OCTOBER 24</span><h2 id="sm-batch-popup-title">Your first SAT session is coming up</h2><div className="sm-popup-countdown"><strong>{daysToFirstBatch}</strong><span><b>{daysToFirstBatch === 1 ? "day" : "days"} to go</b><small>Session 1 · October 24, 2026</small></span></div><p>Reserve a place in the first batch and get focused SAT practice before test day.</p><a href="#sat-registration-form" className="sm-button" onClick={() => { setShowBatchPopup(false); sessionStorage.setItem("sat-first-batch-popup-dismissed", "1"); track("SATMasterclassCTA_FirstBatchPopup"); }}>Reserve Your Seat <ArrowRight size={16}/></a></section></div>}
+    {showBatchPopup && batchCountdown && batchCountdown.totalMs > 0 && <div className="sm-batch-popup-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setShowBatchPopup(false); }}><section className="sm-batch-popup" role="dialog" aria-modal="true" aria-labelledby="sm-batch-popup-title"><button type="button" className="sm-batch-popup-close" aria-label="Close first batch countdown" onClick={() => setShowBatchPopup(false)}><X/></button><span className="sm-batch-popup-icon"><Clock3/></span><span className="sm-pill">FIRST BATCH · OCTOBER 24</span><h2 id="sm-batch-popup-title">Your first SAT session is coming up</h2><div className="sm-popup-countdown" aria-label={`${batchCountdown.days} days, ${batchCountdown.hours} hours, ${batchCountdown.minutes} minutes, ${batchCountdown.seconds} seconds`}><div><strong>{batchCountdown.days}</strong><small>Days</small></div><div><strong>{String(batchCountdown.hours).padStart(2, "0")}</strong><small>Hours</small></div><div><strong>{String(batchCountdown.minutes).padStart(2, "0")}</strong><small>Minutes</small></div><div><strong>{String(batchCountdown.seconds).padStart(2, "0")}</strong><small>Seconds</small></div></div><small className="sm-popup-local-time">Countdown uses your device’s local time. Session 1 starts Oct 24, 2026 at 11:00 AM.</small><p>Reserve a place in the first batch and get focused SAT practice before test day.</p><a href="#sat-registration-form" className="sm-button" onClick={() => { setShowBatchPopup(false); track("SATMasterclassCTA_FirstBatchPopup"); }}>Reserve Your Seat <ArrowRight size={16}/></a></section></div>}
     {showFloatingCta && <a className="sm-floating-cta" href="#sat-registration-form" onClick={()=>track("SATMasterclassCTA_Floating")}>Reserve Your Seat <ArrowRight/></a>}<a className="sm-whatsapp-float" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Chat with Lurnex on WhatsApp" onClick={()=>track("SATMasterclassWhatsApp")}><MessageCircle/></a>
   </main>;
 }
