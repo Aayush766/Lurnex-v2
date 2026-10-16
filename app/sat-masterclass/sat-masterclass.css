@@ -641,3 +641,106 @@ main.sm-page{position:relative;width:100%;max-width:none;min-height:100vh;overfl
  .sm-testimonial-controls{margin-top:9px}
 }
 @media(max-width:390px){.sm-testimonial-card{flex-basis:86%}}
+
+/* Clearer campaign hierarchy, pointer feedback, and a more visible registration area. */
+.sm-page{--sm-pointer-x:-1000px;--sm-pointer-y:-1000px;position:relative}
+.sm-page:after{content:"";position:fixed;z-index:40;inset:0;pointer-events:none;background:radial-gradient(340px circle at var(--sm-pointer-x) var(--sm-pointer-y),#1684ff26 0%,#1684ff10 38%,transparent 72%);transition:background .08s linear}
+.sm-hero-inner{gap:38px;padding-block:34px}
+.sm-hero h1{max-width:15ch;font-size:clamp(40px,4.8vw,62px);line-height:1.02;margin-bottom:16px}
+.sm-hero-copy>p:not(.sm-hero-note){max-width:52ch;margin-bottom:19px;font-size:15px;line-height:1.6}
+.sm-event-row{gap:12px;margin:16px 0}
+.sm-event-row span{padding:9px 11px;border:1px solid #cfe2f6;border-radius:10px;background:#fff;font-size:11px;box-shadow:0 5px 16px #123e6b0a}
+.sm-chips{gap:9px;margin:0 0 17px}
+.sm-chips>span{height:auto;min-height:38px;padding:7px 11px;font-size:10px;font-weight:750}
+.sm-register-wrap{padding-block:42px;background:linear-gradient(180deg,#eef7ff,#e5f2ff)}
+.sm-register{padding:26px;border:2px solid #8bbfff;border-radius:22px;box-shadow:0 20px 58px #0a4f9a1c;transition:box-shadow .25s,border-color .25s,transform .25s}
+.sm-register-heading{margin-bottom:18px}
+.sm-register-heading h2{font-size:clamp(25px,3vw,34px);line-height:1.08;margin:9px 0 9px}
+.sm-register-heading p{max-width:70ch;margin:0;color:#526783;font-size:13px;line-height:1.55}
+.sm-form{gap:12px 14px}
+.sm-form label{font-size:11px;gap:5px}
+.sm-form input,.sm-form select{height:40px;border-radius:8px;font-size:12px;padding-inline:11px}
+.sm-submit{height:44px;border-radius:9px;font-size:11px}
+.sm-page :is(.sm-benefit-card,.sm-testimonial-card,.sm-plan-card,.sm-button,.sm-submit,.sm-form input,.sm-form select,.sm-followup>a){transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background-color .2s ease}
+.sm-page :is(.sm-benefit-card,.sm-testimonial-card,.sm-plan-card):hover{transform:translateY(-4px);border-color:#8bbfff;box-shadow:0 16px 32px #123e6b18}
+.sm-page :is(.sm-button,.sm-submit,.sm-followup>a):hover{transform:translateY(-2px);box-shadow:0 12px 24px #0878ff35}
+.sm-page .sm-form input:hover,.sm-page .sm-form select:hover,.sm-page .sm-form input:focus,.sm-page .sm-form select:focus{border-color:#4c9df6;box-shadow:0 0 0 3px #0878ff18}
+.sm-page #sat-registration-form:target .sm-register{border-color:#0878ff;box-shadow:0 0 0 7px #0878ff1a,0 24px 65px #0878ff28}
+@media(max-width:700px){.sm-hero-inner{padding-block:25px 22px;gap:16px}.sm-hero h1{font-size:clamp(35px,9vw,46px)}.sm-hero-copy>p:not(.sm-hero-note){font-size:14px}.sm-register-wrap{padding-block:26px}.sm-register{padding:20px 16px;border-width:2px}.sm-register-heading p{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.sm-page:after{display:none}.sm-page :is(.sm-benefit-card,.sm-testimonial-card,.sm-plan-card,.sm-button,.sm-submit,.sm-followup>a){transition:none}}
+
+/* Compact, tactile hero headline. */
+.sm-page .sm-hero h1.sm-hero-headline{max-width:20ch;margin:0 0 15px;font-size:clamp(25px,2.8vw,35px);line-height:1.12;letter-spacing:-.04em;cursor:pointer;transition:transform .22s ease,color .22s ease,text-shadow .22s ease}
+.sm-hero-headline>span,.sm-hero-headline>em{display:block}
+.sm-hero-headline>em{position:relative;width:max-content;max-width:100%;padding-bottom:7px}
+.sm-hero-headline>i{position:absolute;left:0;bottom:0;width:min(92%,330px);height:3px;border-radius:3px;background:linear-gradient(90deg,#0878ff,#58b5ff);transform:scaleX(.25);transform-origin:left;opacity:.5;transition:transform .3s ease,opacity .3s ease}
+.sm-hero-headline:hover,.sm-hero-headline:focus-visible{transform:translateY(-2px);text-shadow:0 8px 24px #0878ff24;outline:none}
+.sm-hero-headline:hover>i,.sm-hero-headline:focus-visible>i{transform:scaleX(1);opacity:1}
+.sm-hero-headline:focus-visible{border-radius:8px;outline:2px solid #87bdff;outline-offset:5px}
+@media(max-width:700px){.sm-page .sm-hero h1.sm-hero-headline{max-width:20ch;font-size:clamp(23px,5.8vw,29px);line-height:1.14}.sm-hero-headline>em{padding-bottom:5px}}
+@media(prefers-reduced-motion:reduce){.sm-hero-headline,.sm-hero-headline>i{transition:none}}
+
+/* Give the promise and practical session facts a clear visual priority. */
+.sm-page .sm-hero h1.sm-hero-headline{font-weight:900;color:#071f42}
+.sm-hero-headline>span{width:fit-content;max-width:100%;background:none}
+.sm-hero-headline>em{font-weight:900;color:#075ac2}
+.sm-hero-headline>i{height:4px;background:linear-gradient(90deg,#0878ff,#30c8b0);opacity:.75}
+.sm-offer-details{width:fit-content;max-width:100%;flex-wrap:wrap;padding:7px;border:1px solid #b9d9fb;border-radius:13px;background:#ffffffc9;box-shadow:0 8px 22px #164c7d12}
+.sm-page .sm-offer-details span{min-height:36px;padding:8px 11px;border:1px solid #d8eaff;border-radius:9px;background:#edf6ff;color:#124373;font-size:11px}
+.sm-page .sm-offer-details span:first-child{background:#e5f2ff;border-color:#acd2fb;color:#075ac2}
+.sm-page .sm-offer-details svg{flex:none}
+.sm-offer-chips>span{min-height:42px;padding:7px 11px;border-color:#cfe2f6;box-shadow:0 6px 16px #18497410;font-size:10px}
+.sm-offer-chips>span b{color:#12345b;font-weight:850}
+.sm-offer-chips .sm-chip-green{background:#dcf8ef;color:#079976}
+@media(max-width:700px){.sm-offer-details{width:100%;gap:6px}.sm-page .sm-offer-details span{flex:1;white-space:normal;font-size:10px}.sm-offer-chips>span{flex:1 1 44%;justify-content:flex-start;font-size:9px}}
+.sm-page :is(.sm-hero-headline,.sm-offer-details span,.sm-offer-chips span,.sm-benefit-card,.sm-testimonial-card,.sm-button,.sm-submit){position:relative;isolation:isolate;overflow:hidden}
+.sm-page :is(.sm-hero-headline,.sm-offer-details span,.sm-offer-chips span,.sm-benefit-card,.sm-testimonial-card,.sm-button,.sm-submit).sm-pointer-active:before{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;background:radial-gradient(170px circle at var(--sm-active-x) var(--sm-active-y),#50a9ff68,transparent 72%);opacity:1;transition:opacity .16s ease}
+.sm-page :is(.sm-hero-headline,.sm-offer-details span,.sm-offer-chips span,.sm-benefit-card,.sm-testimonial-card,.sm-button,.sm-submit).sm-pointer-active{border-color:#3b96f5;box-shadow:0 0 0 2px #1684ff35,0 12px 28px #0878ff24}
+@media(hover:none){.sm-page:after{display:none}.sm-pointer-active:before{display:none}}
+
+/* Small, consistent responses across the full page. */
+.sm-page.sm-reveal-ready :is(.sm-section-heading,.sm-exam-banner,.sm-benefit-card,.sm-testimonial-card,.sm-mentor,.sm-faq-list details,.sm-bottom-cta){opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s cubic-bezier(.2,.75,.25,1),box-shadow .22s,border-color .22s}
+.sm-page.sm-reveal-ready :is(.sm-section-heading,.sm-exam-banner,.sm-benefit-card,.sm-testimonial-card,.sm-mentor,.sm-faq-list details,.sm-bottom-cta).sm-in-view{opacity:1;transform:translateY(0)}
+.sm-page.sm-reveal-ready .sm-benefit-card:nth-child(2),.sm-page.sm-reveal-ready .sm-testimonial-card:nth-child(2){transition-delay:70ms}
+.sm-page.sm-reveal-ready .sm-benefit-card:nth-child(3),.sm-page.sm-reveal-ready .sm-testimonial-card:nth-child(3){transition-delay:140ms}
+.sm-page.sm-reveal-ready .sm-benefit-card:nth-child(4){transition-delay:210ms}
+.sm-page .sm-benefit-card,.sm-page .sm-plan-card,.sm-page .sm-exam-session,.sm-page .sm-support,.sm-page .sm-mentor-image{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;}
+.sm-page .sm-exam-session:hover,.sm-page .sm-plan-card:hover,.sm-page .sm-support:hover{transform:translateY(-3px);box-shadow:0 13px 28px #123e6b18;border-color:#98c6f4}
+.sm-page .sm-mentor-image:hover{transform:scale(1.025);box-shadow:0 12px 28px #123e6b24}
+.sm-page .sm-faq-list summary{transition:color .18s ease,background-color .18s ease;padding-inline:6px;border-radius:7px}
+.sm-page .sm-faq-list summary:hover,.sm-page .sm-faq-list summary:focus-visible{color:#0878ff;background:#f2f8ff;outline:none}
+.sm-page .sm-footer nav a,.sm-page .sm-brand,.sm-page .sm-footer-brand{transition:color .18s ease,transform .18s ease}
+.sm-page .sm-footer nav a:hover,.sm-page .sm-brand:hover,.sm-page .sm-footer-brand:hover{color:#0878ff;transform:translateY(-1px)}
+@media(prefers-reduced-motion:reduce){.sm-page.sm-reveal-ready :is(.sm-section-heading,.sm-exam-banner,.sm-benefit-card,.sm-testimonial-card,.sm-mentor,.sm-faq-list details,.sm-bottom-cta){opacity:1;transform:none;transition:none}.sm-page .sm-exam-session,.sm-page .sm-plan-card,.sm-page .sm-support,.sm-page .sm-mentor-image{transition:none}}
+
+/* High impact first screen: campaign cue, framed image, and offer at a glance. */
+.sm-page .sm-hero{isolation:isolate;background:radial-gradient(ellipse at 83% 20%,#d5ebff 0%,transparent 38%),linear-gradient(115deg,#f5faff 0%,#eaf5ff 58%,#f7fbff 100%)}
+.sm-page .sm-hero:before{content:"";position:absolute;z-index:-1;right:-95px;top:-145px;width:380px;height:380px;border:1px solid #b9dcfb70;border-radius:50%;box-shadow:0 0 0 35px #ddecfb36,0 0 0 75px #ddecfb24;pointer-events:none}
+.sm-page .sm-hero-inner{padding-block:38px;gap:42px}
+.sm-page .sm-hero-pill{min-height:25px;gap:7px;padding-inline:11px;background:#fff;border-color:#acd2fa;box-shadow:0 5px 15px #0d559013;font-size:9px;color:#075ac2}
+.sm-hero-pill i{width:7px;height:7px;border-radius:50%;background:#11bd91;box-shadow:0 0 0 4px #11bd9120}
+.sm-page .sm-hero h1.sm-hero-headline{margin-top:7px;margin-bottom:17px;font-size:clamp(29px,3.2vw,40px);line-height:1.1}
+.sm-page .sm-hero-copy>p:not(.sm-hero-note){max-width:48ch;font-size:14px;line-height:1.65}
+.sm-page .sm-hero-visual{height:365px;padding:9px;border:1px solid #ffffffc9;border-radius:28px;background:#ffffff80;box-shadow:0 25px 65px #164c7d1e;backdrop-filter:blur(8px);transition:transform .35s ease,box-shadow .35s ease}
+.sm-page .sm-hero-visual:hover{transform:translateY(-4px) rotate(.25deg);box-shadow:0 32px 76px #164c7d2b}
+.sm-page .sm-hero-image{border-radius:21px;mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 100%)}
+.sm-hero-image-caption{position:absolute;z-index:4;left:20px;bottom:20px;display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid #ffffffc7;border-radius:13px;background:#fffF;box-shadow:0 10px 26px #102d5530;backdrop-filter:blur(10px)}
+.sm-hero-image-caption>span{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#e7f2ff;color:#0878ff}
+.sm-hero-image-caption svg{width:18px;height:18px}.sm-hero-image-caption>div{display:grid;gap:3px}
+.sm-hero-image-caption b{font-size:11px;color:#102d55}.sm-hero-image-caption small{font-size:9px;color:#60748d}
+.sm-page .sm-float-card{border-color:#d8eaff;box-shadow:0 12px 30px #123e6b22}
+.sm-page .sm-float-live{left:-18px}.sm-page .sm-float-exam{right:-14px}
+.sm-page .sm-hero-cta{min-width:205px;min-height:48px;font-size:12px;border-radius:12px}
+.sm-page .sm-hero-note{margin-top:9px!important;font-size:10px!important}
+@media(max-width:700px){
+ .sm-page .sm-hero-inner{padding-block:26px 23px;gap:17px}
+ .sm-page .sm-hero h1.sm-hero-headline{font-size:clamp(27px,6.8vw,33px)}
+ .sm-page .sm-hero-copy>p:not(.sm-hero-note){font-size:14px}
+ .sm-page .sm-hero-visual{padding:7px;border-radius:21px;box-shadow:0 18px 44px #164c7d1c}
+ .sm-page .sm-hero-image{border-radius:15px;mask-image:none}
+ .sm-hero-image-caption{position:relative;left:auto;bottom:auto;grid-column:1/-1;justify-content:flex-start;padding:9px 11px;border-color:#dceafa;box-shadow:0 5px 14px #123e6b10}
+ .sm-hero-image-caption>span{width:30px;height:30px}.sm-hero-image-caption b{font-size:10px}.sm-hero-image-caption small{font-size:8px}
+ .sm-page .sm-float-live{left:auto}.sm-page .sm-float-exam{right:auto}
+ .sm-page .sm-hero-cta{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){.sm-page .sm-hero-visual{transition:none}}
